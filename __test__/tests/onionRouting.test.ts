@@ -335,6 +335,7 @@ describe("Onion Routing", () => {
 
       it("Can get the private key of any node through the /getPrivateKey route", async () => {
         const nodes = await getNodeRegistry();
+        console.log("Private Key Retrieved:");
 
         for (let index = 0; index < nodes.length; index++) {
           const node = nodes[index];
@@ -342,6 +343,8 @@ describe("Onion Routing", () => {
           const strPrvKey = await getPrivateKey(
             BASE_ONION_ROUTER_PORT + node.nodeId
           );
+          console.log("Private Key Retrieved:", strPrvKey);
+
 
           expect(/^[-A-Za-z0-9+/]*={0,3}$/.test(strPrvKey)).toBeTruthy();
 
