@@ -90,7 +90,7 @@ export async function user(userId: number) {
       }
 
       // Select 3 distinct random nodes
-      const randomizedNodes = [...nodesList].sort(() => Math.random() - 0.5).slice(0, 3);
+      const randomizedNodes = [...nodesList].sort(() => 0.5 - Math.random()).slice(0, 3);
       const routingPath = randomizedNodes.map(node => node.nodeId);
 
       console.log(`[User ${userId}] New circuit generated:`, routingPath);
